@@ -1,4 +1,7 @@
-
+.d label
+{
+  color: #f7f7f7;
+}
 .sidebar {
   width: 250px;
   background-color: #f7f7f7;

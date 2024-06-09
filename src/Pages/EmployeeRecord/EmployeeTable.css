@@ -2,7 +2,10 @@ body, h1, h2, h3, p, ul, ol, li {
   margin: 0;
   padding: 0;
 }
-
+.tableWrapper h1
+{
+  color: white;
+}
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -34,7 +37,7 @@ body {
 }
 
 .custom-table thead th {
-  position: sticky;
+  /* position: sticky; */
   top: 0;
   background-color: #5d7b9c; 
   z-index: 1;

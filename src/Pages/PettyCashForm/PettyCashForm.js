@@ -39,7 +39,7 @@ const PettyCashForm = () => {
     formDataToSend.append('image', formData.image);
 
     try {
-      const response = await fetch('http://65.0.12.194:3000/pettycash', {
+      const response = await fetch('http://localhost:8080/pettycash', {
         method: 'POST',
         body: formDataToSend
       });

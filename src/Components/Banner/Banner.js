@@ -29,7 +29,7 @@ const Banner = () => {
   return (
     <div>
       {/* <Box style={headerStyle}> */}
-      <Typography variant="h4" style={{ fontSize: "18px", fontWeight: "bold" ,   marginTop: "1%"}}>Dashboard
+      <Typography variant="h4" style={{ color: "White" , fontSize: "18px", fontWeight: "bold" ,   marginTop: "1%"}}>Dashboard
         </Typography>
       {/* </Box> */}
       <Box style={contentStyle}>

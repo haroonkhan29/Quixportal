@@ -39,7 +39,7 @@ const AdMobscreen = () => {
     data.append("profilePic", formData.profilePic);
 
     try {
-      const response = await axios.post("http://65.0.12.194:3000/admob", data, {
+      const response = await axios.post("http://localhost:8080/admob", data, {
         headers: {
           "Content-Type": "multipart/form-data",
         },

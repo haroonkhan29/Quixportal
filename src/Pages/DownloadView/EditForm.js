@@ -24,7 +24,7 @@ const EditForm = ({ record, onSave, onCancel, date, deadline }) => {
   const [projectList, setProjectList] = useState(initialProjectList);
 
   useEffect(() => {
-  fetch("http://65.0.12.194:3000/project/getAll")
+  fetch("http://localhost:8080/project/getAll")
   .then((response) => response.json())
   .then((data) => setProjectList(data))
   .catch((error) => console.error("Error fetching projects:", error));
@@ -49,7 +49,7 @@ const EditForm = ({ record, onSave, onCancel, date, deadline }) => {
   };
   const updateApiData = async () => {
     try {
-      const response = await fetch(`http://65.0.12.194:3000/dailyAssignment/${editedRecord._id}`, {
+      const response = await fetch(`http://localhost:8080/dailyAssignment/${editedRecord._id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -109,7 +109,7 @@ const EditForm = ({ record, onSave, onCancel, date, deadline }) => {
             </div>
             <div className="form-row">
             <div className="input-group1">
-            <label className="status-label">Accounts</label>
+            <label className="status-label">Quix</label>
             <FormControlLabel
            control={
           <AndriodIconComponent
@@ -233,16 +233,11 @@ const EditForm = ({ record, onSave, onCancel, date, deadline }) => {
               {developerList.map((developer) => (
               <option key={developer.name} value={developer.name} />
                ))}
-          <option value="Afifa Nafees" />
-          <option value="Daud Anjum (QA)" />
-          <option value="Fiza Raouf" />
-          <option value="Fahad" />
-          <option value="Haroon Afridi (MERN)" />
-         <option value="Rana Umar" />
-         <option value="Sebtain Minhas" />
-         <option value="Tanveer Kayani" />
-         <option value="Usman Raza" />
-         <option value="Usama Sajjad (Designer)" />
+           <option value="Areej Naseer (HR Manager)" />
+            <option value="Sliha Awan (PM)" />
+            <option value="M.Asim Siddiq (TLA)" />
+            <option value="Aqib Shahzad (CE)" />
+            <option value="Amina Awan (Ui/Ux)" />
          </datalist>
          </label>
          </div>

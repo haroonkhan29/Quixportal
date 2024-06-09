@@ -27,7 +27,7 @@ const Attendance = () => {
   
     const fetchAttendanceData = async () => {
       try {
-        const response = await fetch(`http://65.0.12.194:3000/attendance?date=${selectedDate}`);
+        const response = await fetch(`http://localhost:8080/attendance?date=${selectedDate}`);
         const data = await response.json();
         setAttendanceData(data);
         setFormattedSelectedDate(formatDate(new Date(selectedDate)));
@@ -48,7 +48,7 @@ const Attendance = () => {
       setError(null);
   
       try {
-        const response = await fetch(`http://65.0.12.194:3000/attendance?date=${selectedDate}`);
+        const response = await fetch(`http://localhost:8080/attendance?date=${selectedDate}`);
         const data = await response.json();
         setAttendanceData(data);
         setFormattedSelectedDate(formatDate(new Date(selectedDate)));
@@ -107,7 +107,7 @@ const Attendance = () => {
               <tr key={index}>
                 <td>
                   <img
-                    src={`http://65.0.12.194:3000/uploads/${attendance.profilePic}`}
+                    src={`http://localhost:8080/uploads/${attendance.profilePic}`}
                     alt=""
                     className="profile-picture1"
                   />

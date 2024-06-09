@@ -123,7 +123,7 @@ const Revenue = () => {
   };
 
   return (
-    <div className="">
+    <div className="d">
       <div className="header">
         <h1>App Revenue</h1>
       </div>

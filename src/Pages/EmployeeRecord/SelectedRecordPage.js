@@ -1,23 +1,21 @@
-import React, { useState } from "react";
+import React from "react";
 import CloseIcon from "@mui/icons-material/Close";
 import "./Select.css";
 
 const SelectedRecordPage = ({ selectedRecord, onClose }) => {
-  
   return (
     <div className="modal-overlays">
       <div className="modal-content">
-      <div className="modal-headers">
-    <CloseIcon className="close-icons" onClick={onClose} />
-    </div>
+        <div className="modal-headers">
+          <CloseIcon className="close-icons" onClick={onClose} />
+        </div>
         <h2 className="record-heading">Employee</h2>
         <div className="record-details">
           <img
-            src={`http://65.0.12.194:3000/uploads/${selectedRecord.profilePic}`}
+            src={`http://localhost:8080/uploads/${selectedRecord.profilePic}`}
             alt="Profiles"
             className="profile-picturess"
           />
-          
           <p className="record-item"><strong>ID</strong> {selectedRecord.id}</p>
           <p className="record-item"><strong>Status</strong> {selectedRecord.status}</p>
           <p className="record-item"><strong>Full Name</strong> {selectedRecord.fullName}</p>
@@ -32,13 +30,10 @@ const SelectedRecordPage = ({ selectedRecord, onClose }) => {
           <p className="record-item"><strong>Contact</strong> {selectedRecord.contact}</p>
           <p className="record-item"><strong>City</strong> {selectedRecord.addressCity}</p>
           <p className="record-item"><strong>Postal Code</strong> {selectedRecord.addressPostalCode}</p>
-          <p className="record-item">
-            <strong>CNIC:</strong>{" "}
-            {`${selectedRecord.cnic.slice(0, 5)}-${selectedRecord.cnic.slice(5, 12)}-${selectedRecord.cnic.slice(12, 13)}`}
-          </p>
+          <p className="record-item"><strong>CNIC:</strong> {`${selectedRecord.cnic.slice(0, 5)}-${selectedRecord.cnic.slice(5, 12)}-${selectedRecord.cnic.slice(12, 13)}`}</p>
           <p className="record-item"><strong>Gender</strong> {selectedRecord.gender}</p>
         </div>
-        
+        <div className="sticky-index">Sticky Index Content</div>
       </div>
     </div>
   );

@@ -9,7 +9,8 @@ import { Stack, Typography, Box, Button } from "@mui/material";
 import { NavLink, Link } from "react-router-dom"; 
 import LogoutIcon from "@mui/icons-material/Logout";
 import { ListItemsData } from "./LinksData";
-import logo from "./images/logo2.PNG";
+// import logo from "./images/logo2.PNG";
+import logo from "./images/Quixs.png";
 import "./sidebar.css";
 
 const NavigationMenu = ({ drawerWidth, open }) => {
@@ -21,6 +22,8 @@ const NavigationMenu = ({ drawerWidth, open }) => {
         "& .MuiDrawer-paper": {
           width: drawerWidth,
           boxSizing: "border-box",
+          background: "linear-gradient(45deg, #3371FF 30%, #8D33FF 50%)", 
+
         },
       }}
       variant="persistent"
@@ -40,8 +43,8 @@ const NavigationMenu = ({ drawerWidth, open }) => {
             src={logo}
             alt="Logo"
             style={{
-              width: "100%",
-              height: "100%",
+              width: "90%",
+              height: "90%",
               marginRight: "10px",
               marginTop: "8px",
             }}
@@ -71,7 +74,7 @@ const NavigationMenu = ({ drawerWidth, open }) => {
             >
               <ListItemButton>
                 <ListItemIcon>{item.icon}</ListItemIcon>
-                <ListItemText primary={item.name} />
+                <ListItemText primary={item.name} style={{ color: "white" }}/>
               </ListItemButton>
             </NavLink>
           </ListItem>

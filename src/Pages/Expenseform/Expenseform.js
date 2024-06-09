@@ -113,7 +113,7 @@ const Expenseform = () => {
     console.log("Progress Form submitted:", progressFormData);
     try {
       const response = await axios.post(
-        "http://65.0.12.194:3000/expenseform",
+        "http://localhost:8080/expenseform",
         progressFormData
       );
       console.log(response.data);
