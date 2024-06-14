@@ -8,7 +8,7 @@ const ForgotPasswordForm = ({ onResetPassword, onBackToLogin }) => {
   const [newPassword, setNewPassword] = useState('');
   const handleResetPassword = async () => {
     try {
-      const response = await fetch('http://65.0.12.194:3000/user/forgot-password', {
+      const response = await fetch('http://18.205.246.70:3001/user/forgot-password', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
