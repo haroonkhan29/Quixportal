@@ -12,7 +12,7 @@ const SelectedRecordPage = ({ selectedRecord, onClose }) => {
         <h2 className="record-heading">Employee</h2>
         <div className="record-details">
           <img
-            src={`http://localhost:8080/uploads/${selectedRecord.profilePic}`}
+            src={`http://18.205.246.70:3001/uploads/${selectedRecord.profilePic}`}
             alt="Profiles"
             className="profile-picturess"
           />
@@ -33,7 +33,7 @@ const SelectedRecordPage = ({ selectedRecord, onClose }) => {
           <p className="record-item"><strong>CNIC:</strong> {`${selectedRecord.cnic.slice(0, 5)}-${selectedRecord.cnic.slice(5, 12)}-${selectedRecord.cnic.slice(12, 13)}`}</p>
           <p className="record-item"><strong>Gender</strong> {selectedRecord.gender}</p>
         </div>
-        <div className="sticky-index">Sticky Index Content</div>
+        {/* <div className="sticky-index">Sticky Index Content</div> */}
       </div>
     </div>
   );
