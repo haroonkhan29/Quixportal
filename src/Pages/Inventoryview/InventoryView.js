@@ -34,7 +34,7 @@ const InventoryView = () => {
     // setTimeout(() => {
     //   setSuccessMessage(null);
     // }, 3000);
-    // fetchAllProgress(); 
+    fetchAllProgress(); 
   };
   // const handleExport = () => {
   //   const workbook = XLSX.utils.book_new();

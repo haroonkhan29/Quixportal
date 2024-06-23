@@ -36,7 +36,7 @@ const ProgressView = () => {
     // setTimeout(() => {
     //   setSuccessMessage(null);
     // }, 3000);
-    // fetchAllProgress(); 
+    fetchAllProgress(); 
   };
 
   if (loading) return <CircularProgress />;
