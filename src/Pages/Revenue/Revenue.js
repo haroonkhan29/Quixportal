@@ -1,133 +1,133 @@
-import React, { useEffect, useState } from "react";
-import DatePicker from "react-datepicker";
-import { CircularProgress } from "@mui/material";
-import axios from "axios";
+// import React, { useEffect, useState } from "react";
+// import DatePicker from "react-datepicker";
+// import { CircularProgress } from "@mui/material";
+// import axios from "axios";
 import "./Revenue.css";
 
-const SPREADSHEET_ID = "1xZc-XdKE1lvoUFQwlTLpN57DyoDo-YPlz24_0SxaQjY";
-const FETCH_INTERVAL = 1000;
+// const SPREADSHEET_ID = "1xZc-XdKE1lvoUFQwlTLpN57DyoDo-YPlz24_0SxaQjY";
+// const FETCH_INTERVAL = 1000;
 const Revenue = () => {
-  const [data, setData] = useState([]);
-  const [activeButton, setActiveButton] = useState("Appstark");
-  const [startDate, setStartDate] = useState(null); 
-  const [endDate, setEndDate] = useState(new Date());
-  const fetchData = async (range, startDate, endDate) => {
-    try {
-      const response = await axios.get(
-        `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/${range}`,
-        {
-          params: {
-            key: "AIzaSyD54iNbpWpMyDs0KsH0RMotlPwkebiA-gw",
-          },
-        }
-      );
+  // const [data, setData] = useState([]);
+  // const [activeButton, setActiveButton] = useState("Appstark");
+  // const [startDate, setStartDate] = useState(null); 
+  // const [endDate, setEndDate] = useState(new Date());
+  // const fetchData = async (range, startDate, endDate) => {
+  //   try {
+  //     const response = await axios.get(
+  //       `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/${range}`,
+  //       {
+  //         params: {
+  //           key: "AIzaSyD54iNbpWpMyDs0KsH0RMotlPwkebiA-gw",
+  //         },
+  //       }
+  //     );
 
-      if (response.data.values) {
-        const groupedData = [];
+  //     if (response.data.values) {
+  //       const groupedData = [];
 
-        let currentDateData = [];
-        response.data.values.forEach((row) => {
-          const date = row[0];
-          if (date !== "") {
-            if (currentDateData.length > 0) {
-              groupedData.push(currentDateData);
-            }
-            currentDateData = [date];
-          }
-          currentDateData.push(row.slice(1));
-        });
-        groupedData.push(currentDateData);
-        const filteredData = groupedData.filter((dateData) => {
-          const currentDate = new Date(dateData[0]);
-          return (
-            (startDate === null || currentDate >= startDate) &&
-            currentDate <= endDate
-          );
-        });
+  //       let currentDateData = [];
+  //       response.data.values.forEach((row) => {
+  //         const date = row[0];
+  //         if (date !== "") {
+  //           if (currentDateData.length > 0) {
+  //             groupedData.push(currentDateData);
+  //           }
+  //           currentDateData = [date];
+  //         }
+  //         currentDateData.push(row.slice(1));
+  //       });
+  //       groupedData.push(currentDateData);
+  //       const filteredData = groupedData.filter((dateData) => {
+  //         const currentDate = new Date(dateData[0]);
+  //         return (
+  //           (startDate === null || currentDate >= startDate) &&
+  //           currentDate <= endDate
+  //         );
+  //       });
 
-        setData(filteredData);
-      } else {
-        console.error("No data found in the response.");
-      }
-    } catch (error) {
-      console.error("Error fetching data from Google Sheets:", error);
-    }
-  };
+  //       setData(filteredData);
+  //     } else {
+  //       console.error("No data found in the response.");
+  //     }
+  //   } catch (error) {
+  //     console.error("Error fetching data from Google Sheets:", error);
+  //   }
+  // };
 
-  useEffect(() => {
-    fetchData(activeButton, startDate, endDate);
-    const intervalId = setInterval(() => {
-      fetchData(activeButton, startDate, endDate);
-    }, FETCH_INTERVAL);
-    return () => clearInterval(intervalId);
-  }, [activeButton, startDate, endDate]);
+  // useEffect(() => {
+  //   fetchData(activeButton, startDate, endDate);
+  //   const intervalId = setInterval(() => {
+  //     fetchData(activeButton, startDate, endDate);
+  //   }, FETCH_INTERVAL);
+  //   return () => clearInterval(intervalId);
+  // }, [activeButton, startDate, endDate]);
 
-  const handleButtonClick = (range) => {
-    setActiveButton(range);
-  };
+  // const handleButtonClick = (range) => {
+  //   setActiveButton(range);
+  // };
 
-  const rowIndices = {
-    Appstark: {
-      "first-row": [],
-      "eighth-row": [],
-    },
+  // const rowIndices = {
+  //   Appstark: {
+  //     "first-row": [],
+  //     "eighth-row": [],
+  //   },
 
-    "D-Apps": {
-      "first-row": [],
-      "eighth-row": [],
-    },
-    Actionshore: {
-      "first-row": [],
-      "eighth-row": [],
-    },
-    "Adnan Haider iOS (DApps)": {
-      "first-row": [],
-      "eighth-row": [],
-    },
-    "Kamran Haider iOS (Appstark)": {
-      "first-row": [],
-      "eighth-row": [],
-    },
+  //   "D-Apps": {
+  //     "first-row": [],
+  //     "eighth-row": [],
+  //   },
+  //   Actionshore: {
+  //     "first-row": [],
+  //     "eighth-row": [],
+  //   },
+  //   "Adnan Haider iOS (DApps)": {
+  //     "first-row": [],
+  //     "eighth-row": [],
+  //   },
+  //   "Kamran Haider iOS (Appstark)": {
+  //     "first-row": [],
+  //     "eighth-row": [],
+  //   },
    
     
-  };
+  // };
 
-  const getRowClass = (activeButton, rowIndex) => {
-    let isFirstRow, isEighthRow;
+  // const getRowClass = (activeButton, rowIndex) => {
+  //   let isFirstRow, isEighthRow;
 
-    if (activeButton === "Appstark") {
-      isFirstRow = rowIndex % 8 === 0;
-      isEighthRow = (rowIndex - 7) % 8 === 0;
-    } else if (activeButton === "D-Apps") {
-      isFirstRow = rowIndex % 8 === 0;
-      isEighthRow = (rowIndex - 7) % 8 === 0;
-    } else if (activeButton === "Actionshore") {
-      isFirstRow = rowIndex % 4 === 0;
-      isEighthRow = (rowIndex - 3) % 4 === 0;
-    }else if (activeButton === "Adnan Haider iOS (DApps)") {
-      isFirstRow = rowIndex % 4 === 0;
-      isEighthRow = (rowIndex - 3) % 4 === 0;
-    }else if (activeButton === "Kamran Haider iOS (Appstark)") {
-      isFirstRow = rowIndex % 4 === 0;
-      isEighthRow = (rowIndex - 3) % 4 === 0;
-    }
-    if (isFirstRow) {
-      rowIndices[activeButton]["first-row"].push(rowIndex);
-      return "first-row";
-    } else if (isEighthRow) {
-      rowIndices[activeButton]["eighth-row"].push(rowIndex);
-      return "eighth-row";
-    }
+  //   if (activeButton === "Appstark") {
+  //     isFirstRow = rowIndex % 8 === 0;
+  //     isEighthRow = (rowIndex - 7) % 8 === 0;
+  //   } else if (activeButton === "D-Apps") {
+  //     isFirstRow = rowIndex % 8 === 0;
+  //     isEighthRow = (rowIndex - 7) % 8 === 0;
+  //   } else if (activeButton === "Actionshore") {
+  //     isFirstRow = rowIndex % 4 === 0;
+  //     isEighthRow = (rowIndex - 3) % 4 === 0;
+  //   }else if (activeButton === "Adnan Haider iOS (DApps)") {
+  //     isFirstRow = rowIndex % 4 === 0;
+  //     isEighthRow = (rowIndex - 3) % 4 === 0;
+  //   }else if (activeButton === "Kamran Haider iOS (Appstark)") {
+  //     isFirstRow = rowIndex % 4 === 0;
+  //     isEighthRow = (rowIndex - 3) % 4 === 0;
+  //   }
+  //   if (isFirstRow) {
+  //     rowIndices[activeButton]["first-row"].push(rowIndex);
+  //     return "first-row";
+  //   } else if (isEighthRow) {
+  //     rowIndices[activeButton]["eighth-row"].push(rowIndex);
+  //     return "eighth-row";
+  //   }
 
-    return "";
-  };
+  //   return "";
+  // };
 
   return (
     <div className="d">
       <div className="header">
         <h1>App Revenue</h1>
       </div>
-      <div className="sidebar">
+      {/* <div className="sidebar">
         <button
           className={`btn ${
             activeButton === "Appstark" ? "btn-primary" : "btn-secondary"
@@ -206,7 +206,7 @@ const Revenue = () => {
 </table>
 
 
-      <CircularProgress />
+      <CircularProgress /> */}
     </div>
   );
 };
